@@ -1,6 +1,30 @@
 \section{C-=-1}
 
 \begin{frame}
+	\frametitle{Motywacja}
+
+	\begin{itemize}
+		\item Metaprogramowanie w C\# i Javie jest potężnym narzędziem
+		\item Wiążę się to z dużym kosztem w czasie uruchomienia
+		\item Wymaga środowiska uruchomieniowego i informacji o strukturze programu w pliku wykonywalnym
+		\item W wielu kontekstach to nie jest akceptowalne
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Cel języka}
+
+	\begin{itemize}
+		\item Wprowadzenie metaprogramowania do języków niskopoziomowych
+		\item Umożliwienie wykonania dowolnego kodu w trakcie kompilacji\begin{itemize}
+			\item Wyrażenia oczekujące stałych
+			\item Optymalizacje
+		\end{itemize}
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}
 	\frametitle{Charakterystyka języka}
 
 	\begin{itemize}
@@ -13,4 +37,62 @@
 
 \end{frame}
 
+\begin{frame}
+	\frametitle{Atrybuty}
 
+	\begin{itemize}
+		\item Mechanizm podobny do Atrybutów z C\#
+		\item Adnotacje dla typów, funkcji, zmiennych itp.
+		\item Nowym elementem są funkcje reagujące na użycie adnotowanego obiektu
+		\item Wewnątrz tej funkcji, atrybut może badać i modyfikować kod programu
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Atrybuty}
+
+	\begin{lstlisting}
+public att<function> NoDiscard
+{
+	public fn attach(f: functionDescriptor)
+	{}
+
+	public fn onCall(call: functionCallExpression*)
+	{
+		if(call._parentStatment != null<IInstruction>())
+			raiseError(&(call._pointerToSource), "Return value of a no-discard function is not used", 123);
+	}
+}
+		
+	\end{lstlisting}
+
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Atrybuty}
+
+	\begin{lstlisting}
+[noDiscard()]
+fn noDiscardFunction() -> usize;
+
+fn main() -> usize
+{
+  noDiscardFunction(); // error 123: Return value of
+                       // a no-discard function is not used
+  let x = noDiscardFunction();     // ok
+  let y = x + noDiscardFunction(); // ok
+  return noDiscardFunction();      // ok
+}
+		
+	\end{lstlisting}
+
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Proces kompilacji}
+
+	
+
+\end{frame}
