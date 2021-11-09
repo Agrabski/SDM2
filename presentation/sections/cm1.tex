@@ -12,6 +12,24 @@
 \end{frame}
 
 \begin{frame}
+	\frametitle{Statyczne metaprogramowanie}
+
+	\begin{itemize}
+		\item Mechanizmy metaprogramistyczne zwykle działają w trakcie uruchomienia\begin{itemize}
+			\item Java
+			\item C\#
+		\end{itemize}
+		\item Statyczne metaprogramowanie w ostatnich latach się mocno rozwija\begin{itemize}
+			\item Rust
+			\item Szablony w C++
+			\item Generatory kocu w C\#
+		\end{itemize}
+		\item Przez dodanie generatorów kodu do C\#, serializacja do Json przyśpieszyła o 30\%
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}
 	\frametitle{Cel języka}
 
 	\begin{itemize}
@@ -93,6 +111,17 @@ fn main() -> usize
 \begin{frame}
 	\frametitle{Proces kompilacji}
 
-	
+	\begin{itemize}
+		\item Zaproponowane mechanizmy wymuszają wprowadznie do języka, pewnych decyzji dotyczących implementacji kompilatora.
+		\item Kompilacja zachodzi w 6 fazach\begin{enumerate}
+			\item Stworzenie reprezentacji pośredniej Atrybutów
+			\item Zebranie nagłówków typów i funkcji
+			\item Uruchomienie metod onAttach
+			\item Stworzenie ciał typów i funkcji
+			\item Uruchomienie pozostałych metod Atrybutów
+			\item Kompilacja do kodu maszynowego
+		\end{enumerate}
+		\item Atrybuty nie mogą korzystać z funkcji z biblioteki, w której zostały zdefiniowane.
+	\end{itemize}
 
 \end{frame}

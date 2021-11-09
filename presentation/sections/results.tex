@@ -1,1 +1,65 @@
 \section{Wyniki}
+
+\begin{frame}
+	\frametitle{Prędkość}
+
+	\begin{itemize}
+		\item Zaimplementowany kompilator jest bardzo wolny
+		\item 10 minut, aby skompilować ~200 linii kodu\begin{itemize}
+			\item Duża część kodu kompilatora jest interpretowana
+			\item Interpreter używa nieefektywnych struktur danych
+			\item Implementacja interpretera jest bardzo naiwna
+			\item Używany parser jest bardzo generyczny
+		\end{itemize}
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Wnioski: nowe możliwości}
+
+	\begin{itemize}
+		\item W pracy zaprezentowano kilka praktycznych aplikacji proponowanych mechanizmów\begin{itemize}
+			\item Generowanie plików nagłówkowych dla języka C
+			\item Adnotacja no discard
+			\item Automatyczna generacja typów wyliczeniowych typu flagi (w czasie realizacji)
+		\end{itemize}
+		\item C-=-1 dużo łatwiej rozszerzyć niż inne, podobne języki
+		\item Biblioteki w C-=-1 łatwiej użyć z innego języka niż na przykład C++
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Wnioski: system typów}
+
+	\begin{itemize}
+		\item System typów jest wzorowany na C++/C\#\begin{itemize}
+			\item Generyki/szablony dodane po fakcie
+			\item Nie korzysta z pełnych możliwości współczesnej teorii
+		\end{itemize}
+		\item Adnotacje powinny być częścią systemu typów\begin{itemize}
+			\item Implementacja atrybutu const i pochodnych
+		\end{itemize}
+		\item Relacja pomiędzy adnotacjami a generykami wymaga więcej pracy
+	\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Wnioski}
+
+	\begin{itemize}
+		\item Zakres pracy okazał się zbyt duży\begin{itemize}
+			\item Wiele elementów języka nie zostało zaimplementowane
+			\item Badania zaproponowanego języka są raczej powierzchowne
+		\end{itemize}
+		\item To co zostało przetestowane, wskazuje nowe kierunki badań\begin{itemize}
+			\item Jaka powinna być relacja między atrybutami a systemem typów?
+			\item Czy kompilator może działać z akceptowalną prędkością?
+		\end{itemize}
+		\item Pozostają dalsze badania nad wpływem tej formy metaprogramowania na tworzenia aplikacji.
+	\end{itemize}
+
+\end{frame}
