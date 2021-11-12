@@ -46,6 +46,37 @@
 
 \end{frame}
 
+\begin{frame}[fragile]
+	\frametitle{Wnioski: system typów}
+
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\begin{lstlisting}[caption={const w C-=-1}]
+fn main() -> usize
+{
+ [const()] let x = 3;
+ let list = List<usize*>();
+ list.push(&x);
+ [const()] let pointer = &x;
+}
+			\end{lstlisting}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\begin{lstlisting}[caption={const w C++}]
+int main()
+{
+ auto x = 3;
+ auto list = std::vector<int const*>();
+ list.push_back(&x);
+ auto const* pointer = &x;
+}
+
+			\end{lstlisting}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+
 
 \begin{frame}
 	\frametitle{Wnioski}
