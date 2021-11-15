@@ -11,6 +11,41 @@
 	\end{itemize}
 \end{frame}
 
+\begin{frame}[fragile]
+	\frametitle{Motywacja}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+\begin{itemize}
+	\item Kod źródłowy programu powinien być poprawny, jasny, niezawodny i zwięzły
+	\item Niektóre fragmenty kodu są zależne od innych\begin{itemize}
+		\item Serializacja
+	\end{itemize}
+	\item Lepiej unikać takich zależności
+	\item Metaprogramowanie to sposób na poprawę niezawodności i zwięzłości
+\end{itemize}
+		\end{column}
+		\begin{column}{0.5\textwidth}  %%<--- here
+			\begin{center}
+\begin{lstlisting}
+struct person {
+	std::string name;
+	int yearOfBirth;
+	int height;
+};
+void print(
+  std::ostream&s,
+  person const& p) {
+  s << p.name << '\n'
+    << p.yearOfBirth << '\n'
+    << p.height << '\n';
+}
+\end{lstlisting}
+			 \end{center}
+		\end{column}
+		\end{columns}
+
+\end{frame}
+
 \begin{frame}
 	\frametitle{Statyczne metaprogramowanie}
 
@@ -126,12 +161,4 @@ fn main() -> usize
 
 \end{frame}
 
-\begin{frame}
-	\frametitle{Proces kompilacji}
-
-	\begin{itemize}
-		\item Przyjęty projekt języka narzuca nietypowy proces kompilacji
-	\end{itemize}
-
-\end{frame}
 
