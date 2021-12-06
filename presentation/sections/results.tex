@@ -15,6 +15,41 @@
 
 \end{frame}
 
+\begin{frame}[fragile]
+	\frametitle{Wykonywanie metaprogramowania}
+
+	\begin{lstlisting}
+fn print<T>(object: T*) {
+	if(isPrimitive(typeof(T)))
+		printPrimitive(object);
+	else
+	{
+		for(field : typeof(T).fields)
+		{
+			printPrimitive(field.name);
+			printPrimitive(" value is: ");
+			print<field.type>(field.getValue(object));
+		}
+	}
+}
+	\end{lstlisting}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Wykonywanie metaprogramowania}
+
+\begin{itemize}
+	\item Wywołanie metafunkcji wygląda tak jak zwykłej procedury
+	\item Wywoływanie niektórych funkcji nie ma sensu w trakcie kompilacji, nawet jeśli jest to możliwe\begin{itemize}
+		\item Manipulacja plikami
+		\item Interakcja z użytkownikiem
+	\end{itemize}
+	\item Śledzenie czy zmienna pozostaje stała jest trudne
+\end{itemize}
+
+\end{frame}
+
 \begin{frame}
 	\frametitle{Wnioski: nowe możliwości}
 
